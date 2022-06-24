@@ -1,8 +1,8 @@
 const btn = document.querySelector("button")
 
-const wordSearched = document.querySelector(".word ")
+const wordSearched = document.querySelector(".word p")
 const meaning = document.querySelector(".meaning p")
-const synonym = document.querySelector(".synonym p")
+const example = document.querySelector(".example p")
 
 function searchWord(){
 document.addEventListener("DOMContentLoaded", () => { 
@@ -17,19 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
             
             meaning.textContent = wordData[0].meanings[0].definitions[0].definition 
            
-            synonym.textContent = wordData[0].meanings[0].definitions[0].example
+            example.textContent = wordData[0].meanings[0].definitions[0].example
         })
 })
 })
 }
 searchWord()
-
-// const result = document.querySelector(".word")
-// const meaning = document.querySelector(".meaning")
-// const synonym = document.querySelector(".synonym")
-
-// const button = document.querySelector("button")
-// button.addEventListener(("click"), (e) => {
-//     let input = document.querySelector("#to-search")
-
-// })

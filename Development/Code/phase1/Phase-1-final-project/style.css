@@ -96,12 +96,19 @@ button img{
 
 .word{
     margin-top: 10px;
-    display: block;
+    display: flex;
     height: 60px;
     padding:10px;
     /* background-color: #dd6a05; */
     border: 1px solid black;
     border-radius: 10px;
+}
+
+.word p{
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    margin-left: 10px;
+    margin-top: 8px;
 }
 
 .word span{
@@ -135,7 +142,7 @@ button img{
     font-family: Haettenschweiler;
 }
 
-.synonym{
+.example{
     height: 200px;
     margin-top: 5px;
     margin-left: 20px;
@@ -147,13 +154,13 @@ button img{
 
 }
 
-.synonym h3{
+.example span{
     font-size: 30px;
     color: rgb(0, 58, 158);
     font-family: 'Trebuchet MS';
 }
 
-.synonym p{
+.example p{
     font-size: 20px;
     font-family: Haettenschweiler;
 }
