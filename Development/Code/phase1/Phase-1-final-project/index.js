@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             example.textContent = wordData[0].meanings[0].definitions[0].example
 
-            sound.setAttribute("src", `https:${wordData[0].phonetics[0].audio}`)
         })
        
        })
@@ -31,10 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 searchWord()
 
-
-function playAudio(){
-    sound.play();
-}
 
 
 
