@@ -19,7 +19,7 @@
     height: 100%;
     display: flex;
     margin: 0 auto;
-    background: #8e3624;
+    background: white;
     border-radius: 10px;
 }
 
@@ -30,8 +30,8 @@ img#logo{
 
 #top-heading{
     width: 300px;
-    color: #003300;
-    margin-left: 200px;
+    color: rgb(0, 58, 158);
+    margin-left: 185px;
     margin-top: 25px;
 }
 
@@ -42,11 +42,11 @@ h1{
 
 /*body*/
 main{
-    margin: 5px;
     width: 100%;
     height: 90vh;
     display: block; 
     box-sizing: border-box;
+
 }
 
 #search-container{
@@ -99,7 +99,7 @@ button img{
     display: flex;
     height: 60px;
     padding:8px;
-    /* background-color: #dd6a05; */
+    background-color: #dd6a05;
     border: 1px solid black;
     border-radius: 10px;
 }
