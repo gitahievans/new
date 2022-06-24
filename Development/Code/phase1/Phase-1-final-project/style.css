@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-/* header */
+/* header */ 
 .main-header{
     display: block;
     width: 100%;
@@ -98,33 +98,35 @@ button img{
     margin-top: 10px;
     display: flex;
     height: 60px;
-    padding:10px;
+    padding:8px;
     /* background-color: #dd6a05; */
     border: 1px solid black;
     border-radius: 10px;
 }
 
 .word p{
-    font-size: 30px;
+    font-size: 33px;
     font-family: 'Trebuchet MS';
     margin-left: 10px;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .word span{
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Trebuchet MS';
     color: rgb(0, 58, 158);
     width: auto;
-    margin-left: 15px;
+    margin-left: 250px;
+    margin-top: 14px;
 }
 
 .meaning{
     margin-top: 5px;
-    height: 250px;
+    height: 200px;
+    width: 70%;
     padding: 10px;
     background-color: #fb5b06;
-    margin-right: 10px;
+    margin-left: 122px;
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -163,4 +165,38 @@ button img{
 .example p{
     font-size: 20px;
     font-family: Haettenschweiler;
+}
+
+.voice{
+    height: 80px;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 25px;
+    padding: 5px;
+    display: flex;
+    background-color: #fb5b06;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.voice span{
+    font-size: 30px;
+    color: rgb(0, 58, 158);
+    font-family: 'Trebuchet MS';
+    margin-top: 15px;
+}
+
+.voice button{
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-left: 10px;
+}
+
+
+.voice button img{
+    height: 50px;
+    width: 50px;
+    margin-left: 5px;
+    margin-top: 10px;
 }
