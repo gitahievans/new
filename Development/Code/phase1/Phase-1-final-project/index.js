@@ -1,6 +1,6 @@
 const btn = document.querySelector("button")
 
-const wordSearched = document.querySelector(".word h3")
+const wordSearched = document.querySelector(".word ")
 const meaning = document.querySelector(".meaning p")
 const synonym = document.querySelector(".synonym p")
 
@@ -16,33 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
             wordSearched.textContent = wordData[0].word  
             
             meaning.textContent = wordData[0].meanings[0].definitions[0].definition 
-            if (wordData[0].meanings[0].definitions[0].synonyms === true){
-            synonym.textContent = wordData[0].meanings[0].definitions[0].synonyms
-        }else{
-            synonym.textContent = "The word has no synonym"
-      }  
+           
+            synonym.textContent = wordData[0].meanings[0].definitions[0].example
         })
 })
 })
 }
 searchWord()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 // const result = document.querySelector(".word")
 // const meaning = document.querySelector(".meaning")
