@@ -3,7 +3,6 @@ const btn = document.querySelector("button#search")
 const wordSearched = document.querySelector(".word p")
 const meaning = document.querySelector(".meaning p")
 const example = document.querySelector(".example p")
-const sound = document.querySelector(".voice button")
  
 function searchWord(){
 document.addEventListener("DOMContentLoaded", () => { 
