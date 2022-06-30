@@ -2,31 +2,56 @@ const btn = document.querySelector("button#search")
 const wordSearched = document.querySelector(".word p")
 const meaning = document.querySelector(".meaning p")
 const example = document.querySelector(".example p")
- 
-function searchWord(){
-document.addEventListener("DOMContentLoaded", () => { 
+const wordProperties = document.querySelector("div.word p")
+// const input = document.querySelector(".search-container input") 
 
+
+// function searchWord(){
+// document.addEventListener("DOMContentLoaded", () => { 
+
+//     btn.addEventListener(("click"), (e) => {
+//     let word = document.querySelector("#to-search").value
+
+//     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+//         .then(response => response.json())
+//         .then(function(wordData){ 
+            
+//             wordSearched.textContent = wordData[0].word  
+//             let def = wordData[0].meanings[0].definitions[0].definition
+            
+//             meaning.textContent = `${def}`
+
+//             example.textContent = wordData[0].meanings[0].definitions[0].example
+
+            
+//         })
+//     })
+// })
+// // }
+
+// searchWord()
+
+
+function fetchData(word){
     btn.addEventListener(("click"), (e) => {
-    let word = document.querySelector("#to-search").value
-
-    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        let word = document.querySelector("#to-search").value
+        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
         .then(response => response.json())
-        .then(function(wordData){ 
-            
-            wordSearched.textContent = wordData[0].word  
-            let def = wordData[0].meanings[0].definitions[0].definition
-            
-            meaning.textContent = `${def}`
+        .then(wordData =>  
+            addToNode(wordData))
+            document.getElementById("to-search").value = ' '
+            })
+        }
 
-            example.textContent = wordData[0].meanings[0].definitions[0].example
+    fetchData()
 
-        })
-       
-       })
-})
+function addToNode(wordData){
+    wordSearched.textContent = wordData[0].word
+    let def = wordData[0].meanings[0].definitions[0].definition
+    meaning.textContent = `${def}`
+    example.textContent = wordData[0].meanings[0].definitions[0].example
 }
 
-searchWord()
 
 
 
@@ -34,15 +59,29 @@ searchWord()
 
 
 
-// let def2 = wordData[0].meanings[0].definitions[1].definition
-// let def3 = wordData[0].meanings[0].definitions[2].definition
-// if (def3 === true){ 
-//     meaning.textContent = `1:${def1} 2:${def2} 3:${def3}`
-//    }
-//    else if(def2 === true){
-//     meaning.textContent = `1:${def1} 2:${def2}`
-//    }
-//    else
-//    {
-//     meaning.textContent = `${def1}`
-//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// wordProperties.addEventListener("mouseover", e => {
+//                 alert("you're moving")
+//                 wordProperties.style.backgroundColor = "grey";
+//             })
+
+
+
+    // wordSearched.addEventListener("click", e => {
+    //     console.log("the mouse is over me")
+    // })
+    // wordSearched.addEventListener("mouseover", e => {
+    //     console.log("the mouse is not over me")
+    // })
