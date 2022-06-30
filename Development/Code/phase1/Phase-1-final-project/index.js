@@ -8,32 +8,33 @@ document.addEventListener("DOMContentLoaded", () => {
     let wordDetails = document.querySelector(".details p")
     let input = document.querySelector("#to-search")
 
-fetchData("love")
-async function fetchData(word){
-    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-        .then(response => response.json())
-        return response[0]
+
+    async function fetchData(word){
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+            .then(response => response.json())
+            return response[0]
+        }
+        
+
+    btn.addEventListener("click", addDictionaryInfo)
+
+    async function addDictionaryInfo(){
+        const data = await fetchData(input.value)
+        wordSearched.textContent = data.word
+        meaning.textContent = data.meanings[0].definitions[0].definition
+        example.textContent = data.meanings[0].definitions[0].example
+        wordDetails.textContent = `WORD TYPE: ${data.meanings[0].partOfSpeech} SYNOYMS: ${data.meanings[0].synonyms}`
+        
     }
 
-btn.addEventListener("click", addDictionaryInfo)
+   
+    voice.addEventListener("click", pronounce)
 
-
-async function addDictionaryInfo(){
-    const data = await fetchData(input.value)
-    wordSearched.textContent = data.word
-    meaning.textContent = data.meanings[0].definitions[0].definition
-    example.textContent = data.meanings[0].definitions[0].example
-    
-    wordDetails.textContent = `WORD TYPE: ${data.meanings[0].partOfSpeech} SYNOYMS: ${data.meanings[0].synonyms}`
-}
-
-voice.addEventListener("click", pronounce)
-
-async function pronounce(){
-    const data = await fetchData(input.value)
-    
-    voice = new Audio(data.phonetics[0].audio)
-    voice.play()
-}
+    async function pronounce(){
+        const data = await fetchData(input.value)
+        
+        voice = new Audio(data.phonetics[0].audio)
+        voice.play()
+    }
 
 })
