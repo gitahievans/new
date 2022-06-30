@@ -2,7 +2,7 @@ const btn = document.querySelector("button#search")
 const wordSearched = document.querySelector(".word p")
 const meaning = document.querySelector(".meaning p")
 const example = document.querySelector(".example p")
-const voice = document.querySelector(".voice button")
+let voice = document.querySelector(".voice button")
 
 // async function fetchData(word){
 //     btn.addEventListener(("click"), (e) => {
@@ -30,8 +30,6 @@ fetchData("love")
 async function fetchData(word){
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
         .then(response => response.json())
-        
-
         return response[0]
     }
 
@@ -45,8 +43,20 @@ async function addDictionaryInfo(){
     wordSearched.textContent = data.word
     meaning.textContent = data.meanings[0].definitions[0].definition
     example.textContent = data.meanings[0].definitions[0].example
-    voice.src = data.phonetics[0].audio
 }
+
+voice.addEventListener("click", pronounce)
+
+async function pronounce(){
+    const data = await fetchData(input.value)
+    
+    voice = new Audio(data.phonetics[0].audio)
+    voice.play()
+}
+
+
+
+
 
 
 // function addToNode(wordData){
