@@ -2,58 +2,59 @@ const btn = document.querySelector("button#search")
 const wordSearched = document.querySelector(".word p")
 const meaning = document.querySelector(".meaning p")
 const example = document.querySelector(".example p")
-const wordProperties = document.querySelector("div.word p")
-// const input = document.querySelector(".search-container input") 
+const voice = document.querySelector(".voice button")
 
-
-// function searchWord(){
-// document.addEventListener("DOMContentLoaded", () => { 
-
+// async function fetchData(word){
 //     btn.addEventListener(("click"), (e) => {
-//     let word = document.querySelector("#to-search").value
-
-//     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+//         let word = document.querySelector("#to-search").value
+//         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
 //         .then(response => response.json())
-//         .then(function(wordData){ 
-            
-//             wordSearched.textContent = wordData[0].word  
-//             let def = wordData[0].meanings[0].definitions[0].definition
-            
-//             meaning.textContent = `${def}`
+//         .then(wordData =>  
+//             addToNode(wordData))
+//             document.getElementById("to-search").value = ' '
+//             })
+//         }
+//   fetchData()
+  
 
-//             example.textContent = wordData[0].meanings[0].definitions[0].example
+// function addToNode(wordData){
+//     wordSearched.textContent = wordData[0].word
+//     let def = wordData[0].meanings[0].definitions[0].definition
+//     meaning.textContent = `${def}`
+//     example.textContent = wordData[0].meanings[0].definitions[0].example
+// }
 
-            
-//         })
-//     })
-// })
-// // }
+let input = document.querySelector("#to-search")
 
-// searchWord()
-
-
-function fetchData(word){
-    btn.addEventListener(("click"), (e) => {
-        let word = document.querySelector("#to-search").value
-        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+fetchData("love")
+async function fetchData(word){
+    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
         .then(response => response.json())
-        .then(wordData =>  
-            addToNode(wordData))
-            document.getElementById("to-search").value = ' '
-            })
-        }
+        
 
-    fetchData()
+        return response[0]
+    }
 
-function addToNode(wordData){
-    wordSearched.textContent = wordData[0].word
-    let def = wordData[0].meanings[0].definitions[0].definition
-    meaning.textContent = `${def}`
-    example.textContent = wordData[0].meanings[0].definitions[0].example
+btn.addEventListener("click", addDictionaryInfo)
+
+
+async function addDictionaryInfo(){
+    const data = await fetchData(input.value)
+    console.log(data);
+
+    wordSearched.textContent = data.word
+    meaning.textContent = data.meanings[0].definitions[0].definition
+    example.textContent = data.meanings[0].definitions[0].example
+    voice.src = data.phonetics[0].audio
 }
 
 
-
+// function addToNode(wordData){
+//     wordSearched.textContent = wordData[0].word
+//     let def = wordData[0].meanings[0].definitions[0].definition
+//     meaning.textContent = `${def}`
+//     example.textContent = wordData[0].meanings[0].definitions[0].example
+// }
 
 
 
