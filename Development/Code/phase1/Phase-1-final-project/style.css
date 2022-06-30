@@ -192,3 +192,25 @@ button img{
     margin-left: 5px;
     margin-top: 10px;
 }
+
+.details{
+margin-top: 5px;
+height: 120px;
+width: 70%;
+background-color: aliceblue;
+padding: 10px;
+border-radius: 10px;
+}
+
+.details p{
+    margin-top: 5px;
+    
+    font-size: 20px;
+    font-family: Haettenschweiler;
+}
+
+.details span{
+    font-size: 30px;
+    color: rgb(0, 58, 158);
+    font-family: 'Trebuchet MS';    
+}
