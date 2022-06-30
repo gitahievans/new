@@ -19,4 +19,4 @@ Project description:
         I will use the API to access data that is the meaning of the words and their synonyms. The API provides the data in JSON format. I will therefore have to convert it in Javascript code for easy access of the elements.
     
     Challenges:
-        1.Details such as example in a sentence, synonyms and pronunciation are not available for all words.
+        Details such as example in a sentence, synonyms and pronunciation are not available for all words.
